@@ -15,13 +15,15 @@ use Illuminate\Auth\Events\Registered;
 class AuthController extends Controller
 {
     // get function to return login page
-    public function showLogin() {
+    public function showLogin()
+    {
         return view('auth.login');
     }
 
 
     // post function to submit login form
-    public function login(LoginRequest $request) {
+    public function login(LoginRequest $request)
+    {
         $request->authenticate();
 
         $request->session()->regenerate();
@@ -30,15 +32,17 @@ class AuthController extends Controller
     }
 
     // get function to return register page
-    public function showRegister() {
+    public function showRegister()
+    {
         return view('auth.register');
     }
 
     // post function to submit register form
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -56,13 +60,14 @@ class AuthController extends Controller
     }
 
     // post function to logout the user
-    public function logout(Request $request): RedirectResponse {
+    public function logout(Request $request): RedirectResponse
+    {
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('login');
     }
 }

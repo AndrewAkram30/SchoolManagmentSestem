@@ -33,10 +33,12 @@
                                         <h2 class="text-primary">Get Started</h2>
                                         <h5 class="font-weight-normal mb-4">It's free to signup and only takes a minute.
                                         </h5>
+
                                         <form action="register" method="post">
                                             <div class="form-group">
                                                 <label>Firstname &amp; Lastname</label> <input class="form-control"
-                                                    placeholder="Enter your firstname and lastname" type="text">
+                                                    placeholder="Enter your firstname and lastname" :value="old('name')"
+                                                    type="text">
                                             </div>
                                             @csrf
                                             @error('name')
@@ -74,7 +76,7 @@
                                             </div>
                                         </form>
                                         <div class="main-signup-footer mt-5">
-                                            <p>Already have an account? <a href="{{ url('/' . ($page = 'signin')) }}">Sign
+                                            <p>Already have an account? <a href="{{ url('/' . ($page = 'login')) }}">Sign
                                                     In</a></p>
                                         </div>
                                     </div>

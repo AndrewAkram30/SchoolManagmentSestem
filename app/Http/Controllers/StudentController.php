@@ -35,7 +35,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $Data ['Classrooms'] = classroom::all();
+        $Data['Classrooms'] = classroom::all();
         $Data['Sections'] = section::all();
         $Data['Gender'] = Gender::all();
         $Data['type_blood'] = Type_Blood::all();

@@ -119,3 +119,135 @@ class SubjectController extends Controller
       }
     }
 }
+
+
+
+
+// namespace App\Http\Controllers\API;
+
+// use App\Http\Controllers\Controller;
+// use App\Models\Product;
+// use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Validator as FacadesValidator;
+
+
+// class ProductController extends Controller
+// {
+//     // إنشاء منتج جديد
+//     public function store(Request $request)
+//     {
+//         $validator = Validator::make($request->all(), [
+//             'name' => 'required|string|max:255',
+//             'description' => 'required|string',
+//             'price' => 'required|numeric',
+//             'stock' => 'required|integer',
+//         ]);
+
+//         if ($validator->fails()) {
+//             return response()->json([
+//                 'status' => 'error',
+//                 'message' => 'Validation failed',
+//                 'errors' => $validator->errors()
+//             ], 400);
+//         }
+
+//         $product = Product::create([
+//             'name' => $request->name,
+//             'description' => $request->description,
+//             'price' => $request->price,
+//             'stock' => $request->stock,
+//         ]);
+
+//         return response()->json([
+//             'status' => 'success',
+//             'message' => 'Product created successfully',
+//             'data' => $product
+//         ], 201);
+//     }
+
+//     // استرجاع جميع المنتجات
+//     public function index()
+//     {
+//         $products = Product::all();
+
+//         return response()->json([
+//             'success' => true,
+//             'message'=>'تم استرجاع كل البيانات' ,
+//             'data' => $products,
+//         ], 200);
+//     }
+
+//     // استرجاع منتج معين بناءً على المعرف
+//     public function show($id)
+//     {
+//         $product = Product::find($id);
+
+//         if (!$product) {
+//             return response()->json([
+//                 'status' => 'error',
+//                 'message' => 'Product not found'
+//             ], 404);
+//         }
+
+//         return response()->json([
+//             'status' => 'success',
+//             'data' => $product
+//         ], 200);
+//     }
+
+//     // تحديث منتج معين
+//     public function update(Request $request, $id)
+//     {
+//         $product = Product::find($id);
+
+//         if (!$product) {
+//             return response()->json([
+//                 'status' => 'error',
+//                 'message' => 'Product not found'
+//             ], 404);
+//         }
+
+//         $validator = Validator::make($request->all(), [
+//             'name' => 'string|max:255',
+//             'description' => 'string',
+//             'price' => 'numeric',
+//             'stock' => 'integer',
+//         ]);
+
+//         if ($validator->fails()) {
+//             return response()->json([
+//                 'status' => 'error',
+//                 'message' => 'Validation failed',
+//                 'errors' => $validator->errors()
+//             ], 400);
+//         }
+
+//         $product->update($request->all());
+
+//         return response()->json([
+//             'status' => 'success',
+//             'message' => 'Product updated successfully',
+//             'data' => $product
+//         ], 200);
+//     }
+
+//     // حذف منتج معين
+//     public function destroy($id)
+//     {
+//         $product = Product::find($id);
+
+//         if (!$product) {
+//             return response()->json([
+//                 'status' => 'error',
+//                 'message' => 'Product not found'
+//             ], 404);
+//         }
+
+//         $product->delete();
+
+//         return response()->json([
+//             'status' => 'success',
+//             'message' => 'Product deleted successfully'
+//         ], 200);
+//     }
+// }

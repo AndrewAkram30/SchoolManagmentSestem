@@ -1,14 +1,10 @@
 @extends('layouts.main')
-
 @section('title')
-
+Add student
 @endsection
 @section('page-header')
-    <!-- breadcrumb -->
-@section('PageTitle')
-    Add Student
+Add student
 
-    <!-- breadcrumb -->
 @endsection
 @section('content')
     <!-- row -->

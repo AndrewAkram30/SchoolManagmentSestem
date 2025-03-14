@@ -25,6 +25,13 @@
     <link href="{{ URL::asset('assets/css-rtl/style-dark.css') }}" rel="stylesheet">
     <!---Skinmodes css-->
     <link href="{{ URL::asset('assets/css-rtl/skin-modes.css') }}" rel="stylesheet">
+
+
+    @if (App::getlocal() == 'ar')
+        <link href="{{ URL::asset('assets/css-rtl/style.css') }}" rel="stylesheet">
+    @else
+        <link href="{{ URL::asset('assets/css-ltr/style.css') }}" rel="stylesheet">
+    @endif
 </head>
 
 <body class="main-body bg-primary-transparent">
